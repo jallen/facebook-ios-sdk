@@ -81,14 +81,14 @@
              STAssertTrue(!error, @"!error");
              STAssertNotNil(result, @"nil result");
              id<FBGraphUser> user = result;
-             STAssertTrue([user.id isEqualToString:self.defaultTestSession.testUserID], @"wrong user");
+             STAssertTrue([user[@"id"] isEqualToString:self.defaultTestSession.testUserID], @"wrong user");
          }];
     [connection addRequest:request2
          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
              STAssertTrue(!error, @"!error");
              STAssertNotNil(result, @"nil result");
              id<FBGraphUser> user = result;
-             STAssertTrue([user.id isEqualToString:session2.testUserID], @"wrong user");
+             STAssertTrue([user[@"id"]isEqualToString:session2.testUserID], @"wrong user");
              
              [blocker signal];
          }];
